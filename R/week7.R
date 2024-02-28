@@ -46,11 +46,12 @@ week7_tbl %>%
   labs(x = "Gender", y = "Time Elapsed (mins)")) %>%
   ggsave("../figs/fig4.png", ., dpi = 600, height = 4, width = 8)
  
-week7_tbl %>%
+(week7_tbl %>%
   ggplot(aes(x = q5, y = q7, color = condition)) +
   geom_jitter() +
   geom_smooth(method = "lm", se = FALSE) +
-  labs(x = "Score on Q5", y = "Score on Q7") +
+  labs(x = "Score on Q5", y = "Score on Q7", color ="Experimental Condition") +
   theme(legend.position =  "bottom", 
-        legend.background = element_rect(fill = "#202020"))
+        legend.background = element_rect(fill = "#DFDFDF"))) %>% #grey(0.875)
+  ggsave("../figs/fig5.png", ., dpi = 600, height = 4, width = 8)
 
