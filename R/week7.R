@@ -12,8 +12,8 @@ week7_tbl <- read_csv("../data/week3.csv") %>%
   mutate(gender = recode_factor(gender,"M" = "Male", "F" = "Female")) %>%
   filter(q6 == 1) %>%
   select(-q6) %>%
-  mutate(timeSpent = timeEnd - timeStart)
-
+  mutate(timeSpent = timeEnd - timeStart) %>%
+  mutate(timeSpent = as.numeric(timeSpent))
 
 
 
@@ -53,5 +53,5 @@ week7_tbl %>%
   labs(x = "Score on Q5", y = "Score on Q7", color ="Experimental Condition") +
   theme(legend.position =  "bottom", 
         legend.background = element_rect(fill = "#DFDFDF"))) %>% #grey(0.875)
-  ggsave("../figs/fig5.png", ., dpi = 600, height = 4, width = 8)
+  ggsave("../figs/fig5.png", ., dpi = 600, height = 4, width = 7)
 
