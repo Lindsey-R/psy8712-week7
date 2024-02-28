@@ -33,7 +33,9 @@ week7_tbl %>%
   geom_jitter()) %>%
   ggsave("../figs/fig2.png", ., dpi = 600, height = 4, width = 6.5)
 
-week7_tbl %>%
+(week7_tbl %>%
   ggplot(aes(x = q1, y = q2)) +
   geom_jitter() +
-  facet_grid(cols = gender)
+  facet_grid(cols = vars(gender)) +
+  labs(x = "Score on Q1", y = "Score on Q2")) %>%
+  ggsave("../figs/fig3.png", ., dpi = 600, height = 4, width = 8)
