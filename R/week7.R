@@ -29,9 +29,9 @@ select(week7_tbl, q1:q10) %>%
 
 
 (ggplot(week7_tbl,aes(x = q1, y = q2, color = gender)) +
-  geom_jitter()) %>%
+  geom_jitter()+
+    labs(color="Participant Gender")) %>%
   ggsave("../figs/fig2.png", ., dpi = 600, height = 4, width = 6.5)
-
 
 (ggplot(week7_tbl, aes(x = q1, y = q2)) +
   geom_jitter() +
